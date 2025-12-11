@@ -120,11 +120,9 @@ python layout_analyzer.py
 В результате можно сделать вывод, что раскладка *Вызов* может стать лучшей заменой *Йцукена*, правда только если несколько повышенная нагрузка на мизинец не будет критичной.
 
 ## Приложения
-### Рассматриваемый паттерн расположения рук
-![raspolojenie](https://raw.githubusercontent.com/dolbilko/layout_analyzer/f82681406946a77645dc047cc239ab71e3df586b/raspolojenie.png)
 ### Рассматриваемые раскладки
 #### Йцукен
-![icuken](https://raw.githubusercontent.com/dolbilko/layout_analyzer/3fd934e05cf0e77c6faac4fd5010f64b815c5ce6/icuken.png)
+![icuken](https://github.com/YuriiTur/Rusphone_project/blob/main/qwerty.png)
 
 #### Диктор
 ![diktor](https://raw.githubusercontent.com/dolbilko/layout_analyzer/3fd934e05cf0e77c6faac4fd5010f64b815c5ce6/diktor.png)
@@ -132,6 +130,14 @@ python layout_analyzer.py
 #### Вызов
 ![vyzov](https://raw.githubusercontent.com/dolbilko/layout_analyzer/3fd934e05cf0e77c6faac4fd5010f64b815c5ce6/vyzov.png)
 
-
 #### Скоропись
 ![skoropis](https://raw.githubusercontent.com/dolbilko/layout_analyzer/3fd934e05cf0e77c6faac4fd5010f64b815c5ce6/skoropis.png)
+
+#### Русфон
+![Rusphone](https://github.com/YuriiTur/Rusphone_project/blob/main/Rusfon.jpg)
+
+#### Зубачев
+![zubachew](https://github.com/YuriiTur/Rusphone_project/blob/main/zubachew.png)
+
+#### Ант
+![Ant](https://github.com/YuriiTur/Rusphone_project/blob/main/ant.png)
