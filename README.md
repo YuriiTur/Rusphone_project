@@ -64,9 +64,21 @@ python layout_analyzer.py 1grams-3.txt
 
 ![lab2](https://github.com/YuriiTur/Rusphone_project/blob/Lab2/fingers1.png)
 
-**Нагрузка по пальцам ("1Gramms 3")**
+**Нагрузка по пальцам (1Gramms 3)**
 
 ![lab2](https://github.com/YuriiTur/Rusphone_project/blob/Lab2/fingers2.png)
+
+**3-граммы (ЧдП/ЧудП/НудП) ("Война и мир")**
+
+![lab2](https://github.com/YuriiTur/Rusphone_project/blob/Lab2/trigrams.png)
+
+**3-граммы (ЧдП/ЧудП/НудП) (Digramms)**
+
+![lab2](https://github.com/YuriiTur/Rusphone_project/blob/Lab2/trigrams1.png)
+
+**3-граммы (ЧдП/ЧудП/НудП) (1Gramms 3)**
+
+![lab2](https://github.com/YuriiTur/Rusphone_project/blob/Lab2/trigrams2.png)
 
 Переключение на ветку этой лабораторной:
 ```
