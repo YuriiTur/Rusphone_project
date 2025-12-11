@@ -20,7 +20,7 @@ sudo apt install git
 
 ### Клонирование репозитория
 ```
-git clone https://github.com/dolbilko/layout_analyzer.git
+git clone https://github.com/YuriiTur/Rusphone_project
 ```
 ```
 cd layout_analyzer
