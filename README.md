@@ -40,7 +40,7 @@ python layout_analyzer.py 1grams-3.txt
 ```
 Названий файлов может быть несколько:
 - `python layout_analyzer.py 1grams-3.txt voina-i-mir.txt`
-#### Лабораторная 2
+#### Лабораторная 1+
 **Подсчёт штрафов на пальцы**
 
 ![laba_2](https://raw.githubusercontent.com/dolbilko/layout_analyzer/3fd934e05cf0e77c6faac4fd5010f64b815c5ce6/laba_2.png)
