@@ -28,11 +28,11 @@ cd layout_analyzer
 #### Лабораторная 1
 **Подсчёт нагрузки на пальцы (количество кликов)**
 
-![laba_1](https://github.com/YuriiTur/Rusphone_project/blob/Lab1/aqzGNkVJZXLbIpDpAwKmyy4K7CgmHxPJqv_tonqqKBkbeKxqJOnRVX_vvoDSJ6HvrUL8aLN17RW5VSx5z656Ue14.jpg)
+![lab1](https://github.com/YuriiTur/Rusphone_project/blob/Lab1/aqzGNkVJZXLbIpDpAwKmyy4K7CgmHxPJqv_tonqqKBkbeKxqJOnRVX_vvoDSJ6HvrUL8aLN17RW5VSx5z656Ue14.jpg)
 
 Переключение на ветку этой лабораторной:
 ```
-git checkout laba_1
+git checkout lab1
 ```
 Запуск:
 ```
