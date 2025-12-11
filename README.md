@@ -62,7 +62,7 @@ python layout_analyzer.py 1grams-3.txt
 
 Переключение на ветку этой лабораторной:
 ```
-git checkout laba_3
+git checkout lab2
 ```
 Запуск:
 ```
