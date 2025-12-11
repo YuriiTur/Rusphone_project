@@ -43,7 +43,7 @@ python layout_analyzer.py 1grams-3.txt
 #### Лабораторная 1+
 **Подсчёт штрафов на пальцы**
 
-![laba_2](https://raw.githubusercontent.com/dolbilko/layout_analyzer/3fd934e05cf0e77c6faac4fd5010f64b815c5ce6/laba_2.png)
+![laba_2](https://github.com/YuriiTur/Rusphone_project/blob/Lab1%2B/tTZuoKSOoh4gvZ0jpjCd5A4Wi0KrZltbh7LDgWzgmG2iHETLTyjNf6ypyvJMsPvzTV9x5RA1bo7VMQ_iTUamX_mS.jpg)
 
 Переключение на ветку этой лабораторной:
 ```
