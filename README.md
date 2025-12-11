@@ -56,9 +56,17 @@ python layout_analyzer.py 1grams-3.txt
 Названий файлов может быть несколько:
 - `python layout_analyzer.py 1grams-3.txt voina-i-mir.txt`
 #### Лабораторная 2
-**Подсчёт распределения штрафов между руками**
+**Нагрузка по пальцам ("Война и мир")**
 
-![laba_3](https://raw.githubusercontent.com/dolbilko/layout_analyzer/3fd934e05cf0e77c6faac4fd5010f64b815c5ce6/laba_3.png)
+![lab2](https://github.com/YuriiTur/Rusphone_project/blob/Lab2/fingers.png)
+
+**Нагрузка по пальцам (Digramms)**
+
+![lab2](https://github.com/YuriiTur/Rusphone_project/blob/Lab2/fingers1.png)
+
+**Нагрузка по пальцам ("1Gramms 3")**
+
+![lab2](https://github.com/YuriiTur/Rusphone_project/blob/Lab2/fingers2.png)
 
 Переключение на ветку этой лабораторной:
 ```
@@ -70,41 +78,6 @@ python layout_analyzer.py 1grams-3.txt
 ```
 Названий файлов может быть несколько:
 - `python layout_analyzer.py 1grams-3.txt voina-i-mir.txt`
-#### Лабораторная 4
-**Подсчёт одноручных сочетаний и удобных одноручных сочетаний (от мизинца к указательному)**
-*Количество сочетаний выводиться не на каждую руку по отдельности, а суммарное на две руки*
-
-![laba_4](https://raw.githubusercontent.com/dolbilko/layout_analyzer/3fd934e05cf0e77c6faac4fd5010f64b815c5ce6/laba_4.png)
-
-Переключение на ветку этой лабораторной:
-```
-git checkout laba_4
-```
-Запуск:
-```
-python layout_analyzer.py 1grams-3.txt 3
-```
-Названий файлов может быть несколько:
-- `python layout_analyzer.py 1grams-3.txt voina-i-mir.txt 3`
-
-Последний аргумент - цифра (задаёт максимальную длину рассматриваемых комбинаций)
-#### Лабораторная 5
-**Подсчёт одноручных сочетаний и удобных одноручных сочетаний (от мизинца к указательному) на основе массива всех двухбуквенных сочетаний (без повторений) файлов "1grams-3.txt" и "sortchbukw.csv"**
-*Количество сочетаний выводиться не на каждую руку по отдельности, а суммарное на две руки*
-
-![laba_5](https://raw.githubusercontent.com/dolbilko/layout_analyzer/57a337a8299139a9ac4823742b87f5745e689782/laba_5_icuken.png)
-![laba_5](https://raw.githubusercontent.com/dolbilko/layout_analyzer/57a337a8299139a9ac4823742b87f5745e689782/laba_5_vyzov.png)
-
-Переключение на ветку этой лабораторной:
-```
-git checkout laba_5
-```
-Запуск:
-```
-python layout_analyzer.py
-```
-
-
 
 ## Вывод
 
