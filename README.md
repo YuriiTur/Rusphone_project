@@ -26,7 +26,7 @@ git clone https://github.com/YuriiTur/Rusphone_project
 cd layout_analyzer
 ```
 #### Лабораторная 1
-**Подсчёт нагрузки на пальцы (количество кликов)**
+**Подсчёт нагрузки и штрафов на пальцы (количество кликов)**
 
 ![lab1](https://github.com/YuriiTur/Rusphone_project/blob/Lab1/aqzGNkVJZXLbIpDpAwKmyy4K7CgmHxPJqv_tonqqKBkbeKxqJOnRVX_vvoDSJ6HvrUL8aLN17RW5VSx5z656Ue14.jpg)
 
