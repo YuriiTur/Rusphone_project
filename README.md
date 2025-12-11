@@ -28,7 +28,7 @@ cd layout_analyzer
 #### Лабораторная 1
 **Подсчёт нагрузки на пальцы (количество кликов)**
 
-![laba_1](https://raw.githubusercontent.com/dolbilko/layout_analyzer/3fd934e05cf0e77c6faac4fd5010f64b815c5ce6/laba_1.png)
+![laba_1](https://github.com/YuriiTur/Rusphone_project/blob/Lab1/aqzGNkVJZXLbIpDpAwKmyy4K7CgmHxPJqv_tonqqKBkbeKxqJOnRVX_vvoDSJ6HvrUL8aLN17RW5VSx5z656Ue14.jpg)
 
 Переключение на ветку этой лабораторной:
 ```
