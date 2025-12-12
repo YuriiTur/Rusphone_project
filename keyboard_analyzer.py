@@ -2,10 +2,6 @@
 Основной класс анализатора раскладок клавиатуры
 """
 
-import multiprocessing as mp
-from functools import partial
-import os
-
 
 class KeyboardAnalyzer:
     """
@@ -41,8 +37,6 @@ class KeyboardAnalyzer:
             self.alt_keys = getattr(self.layout, 'alt_keys', {})
             self.home_positions = self.layout.home_positions
 
-            # Создаем обратное отображение
-            self._create_reverse_mapping()
 
         except ImportError as e:
             print(f"Ошибка: Не удалось загрузить раскладку '{layout_name}': {e}")
@@ -88,29 +82,6 @@ class KeyboardAnalyzer:
             'right_index': 1, 'right_middle': 2, 'right_ring': 3, 'right_pinky': 4
         }
 
-    def _create_reverse_mapping(self):
-        """Создает обратное отображение код клавиши -> (символ, палец)"""
-        self.code_to_symbol = {}
-
-        # Основные символы
-        for char, (code, finger) in self.keys.items():
-            self.code_to_symbol[code] = (char, finger)
-
-        # Заглавные символы
-        if hasattr(self, 'caps_keys'):
-            for char, (code, finger) in self.caps_keys.items():
-                self.code_to_symbol[code] = (char, finger)
-
-        # Shift символы
-        if hasattr(self, 'shift_keys'):
-            for char, (code, finger) in self.shift_keys.items():
-                self.code_to_symbol[code] = (char, finger)
-
-        # Alt символы
-        if hasattr(self, 'alt_keys'):
-            for char, (code, finger) in self.alt_keys.items():
-                self.code_to_symbol[code] = (char, finger)
-
     def _calculate_shtraf(self, key_code, finger):
         """Вычисляет путь движения пальца от домашней позиции до заданной клавиши."""
         if finger in ['left_thumb', 'right_thumb']:
@@ -153,45 +124,43 @@ class KeyboardAnalyzer:
 
     def _analyze_finger_sequence(self, fingers):
         """
-        Анализирует последовательность пальцев для определения типа перебора.
+        Классификация пальцевых переборов строго по правилам:
 
-        Returns:
-            (type, direction) где:
-            type: 'udp', 'chudp', 'nudp', 'same', 'other'
-            direction: 'inward', 'outward', 'mixed', 'none'
+        УДП (udp)   — внешний -> внутренний  (1 -> 2 -> 3 -> 4)  строго растёт
+        ЧУДП (chudp) — внутренний -> внешний  (4 -> 3 -> 2 -> 1)  строго падает
+        НУДП (nudp)  — всё остальное (смешанное направление, переходы между руками)
         """
+
         if len(fingers) < 2:
             return 'other', 'none'
 
-        # Определяем руки для каждого пальца
+        # Определяем руку
         hands = [self._get_hand_for_finger(f) for f in fingers]
 
-        # Если пальцы на разных руках - это не перебор
+        # Если переход между руками — сразу НУДП
         if len(set(hands)) > 1:
-            return 'other', 'mixed'
+            return 'nudp', 'mixed'
 
-        # Все пальцы на одной руке
-        hand = hands[0]
-        if hand not in ['left', 'right']:
-            return 'other', 'none'
+        # Приоритеты пальцев: внешний -> 1, внутренний -> 4
+        priority = {
+            'left_pinky': 1, 'left_ring': 2, 'left_middle': 3, 'left_index': 4,
+            'right_pinky': 1, 'right_ring': 2, 'right_middle': 3, 'right_index': 4
+        }
 
-        # Получаем приоритеты пальцев
-        priorities = [self.finger_priority.get(f, 0) for f in fingers]
+        # Получаем последовательность приоритетов
+        seq = [priority[f] for f in fingers]
 
-        # Анализируем направление
-        is_inward = all(priorities[i] <= priorities[i + 1] for i in range(len(priorities) - 1))
-        is_outward = all(priorities[i] >= priorities[i + 1] for i in range(len(priorities) - 1))
+        # Проверка на строго растущий (УДП)
+        is_udp = all(seq[i] < seq[i + 1] for i in range(len(seq) - 1))
 
-        if is_inward:
-            # Для левой руки: мизинец(4) -> указательный(1) = внутрь
-            # Для правой руки: мизинец(4) -> указательный(1) = внутрь
-            return 'udp', 'inward'
-        elif is_outward:
-            # Для левой руки: указательный(1) -> мизинец(4) = наружу
-            # Для правой руки: указательный(1) -> мизинец(4) = наружу
-            return 'chudp', 'outward'
+        # Проверка на строго убывающий (ЧУДП)
+        is_chudp = all(seq[i] > seq[i + 1] for i in range(len(seq) - 1))
+
+        if is_udp:
+            return 'udp', 'outward'  # внешний -> внутренний
+        elif is_chudp:
+            return 'chudp', 'inward'  # внутренний -> внешний
         else:
-            # Смешанное направление - неудобный
             return 'nudp', 'mixed'
 
     def analyze_ngrams(self, text, n=2):
@@ -244,8 +213,11 @@ class KeyboardAnalyzer:
             hands = [self._get_hand_for_finger(f) for f in fingers]
             unique_hands = set(hands)
 
+            # Переход между руками — всегда неудобный перебор
             if len(unique_hands) > 1:
-                ngram_stats['different_hands'] += 1
+                ngram_stats['nudp'] += 1
+                if len(ngram_stats['examples']['nudp']) < 5:
+                    ngram_stats['examples']['nudp'].append(ngram)
                 continue
 
             # Проверяем, один ли палец используется
